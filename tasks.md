@@ -78,8 +78,14 @@ SELECT * FROM matches WHERE hometeam = 'Swansea' AND awayteam = 'Huddersfield' O
 
 ```sql
 <!-- Copy solution here -->
+SELECT COUNT(*) FROM matches WHERE division_code LIKE '%N1%' AND ftr = 'D' AND season > '2009' AND season < '2016';
+--finds a total of 431 draws between 2010 to 2015.
 
 
+-- finds the code data from division name:
+SELECT * FROM divisions WHERE name LIKE '%Eredivisie%';
+
+SELECT * FROM matches WHERE division_code LIKE '%N1%' AND ftr = 'D' AND season > '2009' AND season < '2016';
 ```
 
 9) Select the matches played in the Premier League in order of total goals scored (`fthg` + `ftag`) from highest to lowest. When two matches have the same total the match with more home goals (`fthg`) should come first. 
