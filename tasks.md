@@ -6,7 +6,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 
 ```sql
 <!-- Copy solution here -->
-
+SELECT * FROM matches WHERE season = '2017';
 
 ```
 
@@ -14,7 +14,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 
 ```sql
 <!-- Copy solution here -->
-
+SELECT * FROM matches WHERE hometeam = 'Barcelona' OR awayteam = 'Barcelona';
 
 ```
 
@@ -22,23 +22,28 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 
 ```sql
 <!-- Copy solution here -->
-
-
+SELECT * FROM divisions WHERE country = 'Scotland';
+SELECT DISTINCT name FROM divisions WHERE name LIKE '%Scottish%';
 ```
 
 4) Find the value of the `code` for the `Bundesliga` division. Use that code to find out how many matches Freiburg have played in that division. HINT: You will need to query both tables
+374
+
 
 ```sql
 <!-- Copy solution here -->
+SELECT * FROM divisions WHERE name = 'Bundesliga';           -- D1 is the value of the code.
 
+SELECT * FROM matches WHERE division_code = 'D1' AND (hometeam = 'Freiburg' OR awayteam = 'Freiburg');
 
+SELECT COUNT(*) FROM matches WHERE division_code = 'D1' AND (hometeam = 'Freiburg' OR awayteam = 'Freiburg');
 ```
 
 5)  Find the teams which include the word "City" in their name. HINT: Not every team has been entered into the database with their full name, eg. `Norwich City` are listed as `Norwich`. If your query is correct it should return four teams.
 
 ```sql
 <!-- Copy solution here -->
-
+SELECT DISTINCT hometeam FROM matches WHERE hometeam LIKE '%City%';
 
 ```
 
@@ -47,6 +52,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 ```sql
 <!-- Copy solution here -->
 
+SELECT * FROM divisions WHERE country LIKE '%France%';  --finds count of 4
 
 ```
 
