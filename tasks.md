@@ -54,6 +54,8 @@ SELECT DISTINCT hometeam FROM matches WHERE hometeam LIKE '%City%';
 
 SELECT * FROM divisions WHERE country LIKE '%France%';  --finds count of 4
 
+
+
 ```
 
 7) Have Huddersfield played Swansea in any of the recorded matches?
