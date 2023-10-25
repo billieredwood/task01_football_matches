@@ -52,8 +52,11 @@ SELECT DISTINCT hometeam FROM matches WHERE hometeam LIKE '%City%';
 ```sql
 <!-- Copy solution here -->
 
-SELECT * FROM divisions WHERE country LIKE '%France%';  --finds count of 4
+SELECT * FROM divisions WHERE country LIKE '%France%';  --finds count of 4, code of f1 and f2
 
+SELECT DISTINCT hometeam FROM matches WHERE division_code IN ('F1', 'F2');  --shows team names
+or
+SELECT COUNT(DISTINCT hometeam) FROM matches WHERE division_code IN ('F1', 'F2');       -- to count of 61 teams
 
 
 ```
@@ -63,6 +66,11 @@ SELECT * FROM divisions WHERE country LIKE '%France%';  --finds count of 4
 ```sql
 <!-- Copy solution here -->
 
+-- to confirm that they have played; showing a count of 12:
+SELECT COUNT(*) FROM matches WHERE hometeam = 'Swansea' AND awayteam = 'Huddersfield' OR hometeam = 'Huddersfield' AND awayteam = 'Swansea';
+
+-- to show the games that they have played together:
+SELECT * FROM matches WHERE hometeam = 'Swansea' AND awayteam = 'Huddersfield' OR hometeam = 'Huddersfield' AND awayteam = 'Swansea';
 
 ```
 
